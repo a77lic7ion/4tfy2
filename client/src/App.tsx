@@ -127,15 +127,26 @@ function ResponseFeed({ theme, onTheme }: { theme: ThemeMode; onTheme: (value: T
   </div>;
 }
 
+function ThemeDock({ theme, onTheme }: { theme: ThemeMode; onTheme: (value: ThemeMode) => void }) {
+  return (
+    <div className="theme-dock">
+      <span className="theme-dock-label">Theme</span>
+      <ModeSwitch theme={theme} onChange={onTheme} />
+    </div>
+  );
+}
+
 function App() {
   const [theme, setTheme] = useState<ThemeMode>("response");
   useEffect(() => { const query = new URLSearchParams(window.location.search).get("theme"); const saved = window.localStorage.getItem("4tify-theme"); if (themeOptions.some((option) => option.id === query)) setTheme(query as ThemeMode); else if (themeOptions.some((option) => option.id === saved)) setTheme(saved as ThemeMode); }, []);
   const onTheme = (next: ThemeMode) => { setTheme(next); window.localStorage.setItem("4tify-theme", next); window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50); };
-  if (theme === "estate") return <EstateDossier theme={theme} onTheme={onTheme} />;
-  if (theme === "response") return <ResponseFeed theme={theme} onTheme={onTheme} />;
-  if (theme === "metro") return <MetroVector theme={theme} onTheme={onTheme} />;
-  if (theme === "watchtower") return <Watchtower theme={theme} onTheme={onTheme} />;
-  return <CivicGuard theme={theme} onTheme={onTheme} />;
+  let body = null;
+  if (theme === "estate") body = <EstateDossier theme={theme} onTheme={onTheme} />;
+  else if (theme === "response") body = <ResponseFeed theme={theme} onTheme={onTheme} />;
+  else if (theme === "metro") body = <MetroVector theme={theme} onTheme={onTheme} />;
+  else if (theme === "watchtower") body = <Watchtower theme={theme} onTheme={onTheme} />;
+  else body = <CivicGuard theme={theme} onTheme={onTheme} />;
+  return <>{body}<ThemeDock theme={theme} onTheme={onTheme} /></>;
 }
 
 export default App;
