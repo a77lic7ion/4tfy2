@@ -22,3 +22,37 @@
 .response-protocol::before { content: ""; position: absolute; z-index: 3; left: 0; top: 0; height: 3px; width: 25%; background: var(--red); }
 
 @media (max-width: 820px) { .estate-canvas::after { left: 9px; } }
+
+/* ── Mobile theme-toggle fix (Metro / Watchtower / Civic use a <select> ThemeSelect) ──
+   At <=620px the original rule collapsed the <select> to 38px with color:transparent,
+   making the toggle invisible/disappear on those three themes. Restore a visible,
+   tappable control and stop the header from clipping it. */
+@media (max-width: 620px) {
+  .theme-select { display: flex; align-items: center; gap: .35rem; flex: 0 0 auto; }
+  .theme-select > span { display: inline; color: inherit; font: 700 10px/1 "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+  .theme-select select {
+    width: auto;
+    min-width: 116px;
+    max-width: 46vw;
+    padding: .5rem .55rem;
+    color: inherit;            /* was transparent -> invisible */
+    background: rgba(255,255,255,.08);
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    font: 700 12px/1 "Barlow Condensed", sans-serif;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .theme-select-dark select { background: rgba(0,0,0,.35); color: #fff; }
+  /* Keep the select from being clipped/overflow-hidden by the header */
+  .metro-head, .civic-head, .watch-hero header, .watch-hero header > div { overflow: visible; flex-wrap: wrap; }
+  /* Ensure the toggle sits above any overlapping hero/section */
+  .metro-head, .civic-head, .watch-hero header { position: relative; z-index: 40; }
+}
+/* Estate/Response use the ModeSwitch button — make sure it always stays tappable */
+@media (max-width: 620px) {
+  .estate-mobile-head, .night-command-top { z-index: 40; }
+  .mode-switch > button { min-width: 40px; }
+}
