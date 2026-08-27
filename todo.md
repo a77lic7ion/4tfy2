@@ -1,0 +1,26 @@
+# Implementation Checklist
+
+- [x] Retain the approved structural treatment of Asset Protocol and Response Signal as the starting pair.
+- [x] Add three South Africa–grounded security themes with distinct colors, information architecture, navigation, motion, and mobile interaction.
+- [x] Reframe all three new themes around commercial, industrial, office, retail, and logistics-site protection; exclude residential, estate, frail-care, and retirement cues.
+- [x] Surface business continuity, asset and stock protection, equipment security, controlled access, operational uptime, and professional response within seconds in every new theme.
+- [x] Integrate Fourtify’s “security with heart” purpose, community service, integrity, fair employment, officer respect, and PSIRA registration across the five themes.
+- [x] Explain the operating model: site-specific instructions agreed with managers, individual shift accountability, proactive loss-and-damage reporting, and prevention-led security.
+- [x] Preserve the commercial and corporate focus while connecting people, property, business continuity, and community wellbeing.
+- [x] Expand the mode switcher to five persistent theme choices without degrading call-to-action speed.
+- [x] Validate all five experiences on desktop and mobile, then checkpoint to publish the completed system.
+- [x] Package the final five-theme project into a clean ZIP archive for delivery.
+- [x] Replace the current two-theme structure with two materially distinct layout systems rather than palette variations.
+- [x] Give each mode a unique desktop composition, mobile flow, navigation pattern, content rhythm, card geometry, and animation language.
+- [x] Preserve service, coverage, profile, FAQ, and assessment content while relocating and reframing it per mode.
+- [x] Verify that a visitor can identify the active layout at first glance without relying on colour alone.
+- [x] Reframe the two new themes around professional rapid-response readiness rather than calm dusk-led protection.
+- [x] Make client trust the primary emotional outcome; communicate Johannesburg after-dark readiness through controlled risk, perimeter awareness, and professional calm—not sensational fear or law-enforcement branding.
+- [x] Express a single-officer, always-ready response posture through imagery, hierarchy, and motion without claiming police or military affiliation.
+- [x] Make urgent next actions apparent in seconds: emergency call, rapid assessment request, key services, coverage, and 24/7 monitoring.
+- [x] Use bold, simple client-facing signals that acknowledge urgency without fear-based copy, false arrival-time claims, or generic serenity.
+- [x] Use hardened Gauteng perimeter, access-control, patrol, and command cues while preserving a clearly private-security identity.
+- [x] Prioritise high-contrast, mobile-readable interfaces with decisive assessment and call actions.
+- [x] Retain current operational service content, excluding any unverified client-feedback quote.
+- [x] Replace the former two-mode theme switcher with five persistent mode choices.
+- [x] Consolidate the theme switcher to the two new modes and persist the active selection.

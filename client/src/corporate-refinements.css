@@ -1,0 +1,52 @@
+/**
+ * 4tify commercial-theme differentiation pass.
+ * Metro carries a route/station spine, Watchtower carries layered observation frames,
+ * and Civic Guard carries printed bulletin slips. Accent colors now act as signals, not fields.
+ */
+
+/* METRO VECTOR — the route continues through every operational station. */
+.metro-services, .metro-value, .metro-company, .metro-coverage, .metro-questions, .metro-assessment { position: relative; }
+.metro-services::before, .metro-value::before, .metro-company::before, .metro-coverage::before, .metro-questions::before, .metro-assessment::before { content: ""; position: absolute; left: clamp(1.5rem, 4.4vw, 4.7rem); top: 0; bottom: 0; z-index: 2; width: 1px; pointer-events: none; opacity: .65; background: repeating-linear-gradient(to bottom, var(--lime) 0 8px, transparent 8px 20px); }
+.metro-services::after, .metro-value::after, .metro-company::after, .metro-coverage::after, .metro-questions::after, .metro-assessment::after { content: ""; position: absolute; z-index: 3; left: calc(clamp(1.5rem, 4.4vw, 4.7rem) - 4px); top: 48px; width: 8px; height: 8px; border: 2px solid var(--metro); border-radius: 50%; background: var(--lime); }
+.metro-assessment { background: var(--paper); border-top: 9px solid var(--lime); }
+.metro-assessment .metro-section-title, .metro-assessment h2, .metro-assessment > div > p:first-child, .metro-assessment > div > p:last-of-type, .metro-assessment > div > a { color: var(--metro); }
+.metro-assessment h2 em { color: var(--metro); }
+.metro-company h2, .metro-coverage h2, .metro-questions h2, .metro-assessment h2 { font-family: "Manrope", sans-serif; font-weight: 800; font-size: clamp(2rem, 3.2vw, 3.4rem); line-height: 1.05; letter-spacing: -.05em; text-transform: none; }
+.metro-portfolio span:hover { background: var(--metro); color: var(--paper); }
+
+/* WATCHTOWER — content is always seen through a controlled observation window. */
+.watch-services, .watch-scan, .watch-company, .watch-coverage, .watch-faq, .watch-contact { position: relative; }
+.watch-services::before, .watch-scan::before, .watch-company::before, .watch-coverage::before, .watch-faq::before, .watch-contact::before { content: ""; position: absolute; inset: 1.15rem; border: 1px solid color-mix(in srgb, currentColor 15%, transparent); pointer-events: none; }
+.watch-services::after, .watch-scan::after, .watch-company::after, .watch-coverage::after, .watch-faq::after, .watch-contact::after { content: "OBSERVE"; position: absolute; z-index: 2; right: 1.9rem; top: 1.45rem; color: var(--copper); font: 500 7px/1 "IBM Plex Mono", monospace; letter-spacing: .16em; }
+.watch-scan::after { content: "SCAN"; }.watch-company::after { content: "VERIFY"; }.watch-coverage::after { content: "POSITION"; }.watch-faq::after { content: "BRIEF"; }.watch-contact::after { content: "OPEN CHANNEL"; }
+.watch-company h2, .watch-coverage h2, .watch-faq h2, .watch-contact h2 { font-family: "Manrope", sans-serif; font-weight: 800; font-size: clamp(2rem, 3.2vw, 3.5rem); line-height: 1.05; letter-spacing: -.05em; text-transform: none; }
+.watch-contact { background: #ece8de; color: #1d292f; border-top: 9px solid var(--copper); }
+.watch-contact > div > p, .watch-contact h2 em { color: #9e6138; }
+.watch-contact > div > p:nth-of-type(2) { color: #536167; }
+.watch-contact > div > a { color: #9e6138; }
+.watch-contact .business-form { background: #1b2a3b; }.watch-contact .business-form button { color: #1d1815; background: var(--copper); }
+.watch-portfolio { background: #e4dfd5; }.watch-portfolio b { background: #f1ede5; }
+
+/* CIVIC GUARD — bulletin ink and folded slips, not a terracotta surface treatment. */
+.civic-kit { position: relative; color: var(--ink); background: #e8ded0; border-top: 9px solid var(--terracotta); }
+.civic-kit::before { content: "SECURITY KIT / BUSINESS PROTECTION"; position: absolute; top: 1rem; right: clamp(1.25rem, 5vw, 5rem); color: var(--terracotta); font: 500 7px/1 "IBM Plex Mono", monospace; letter-spacing: .12em; }
+.civic-kit-title > p { color: var(--rust); }.civic-kit h2 em { color: var(--terracotta); }
+.civic-kit-sheets article, .civic-kit-sheets article:nth-child(even) { margin-top: 0; color: var(--ink); background: #f5eee3; }
+.civic-kit-sheets article:nth-child(2), .civic-kit-sheets article:nth-child(4) { transform: translateY(1.35rem); background: #efcfbd; }
+.civic-kit-sheets article:hover { transform: translateY(-7px) rotate(-1deg); background: #fff9ee; }
+.civic-interest, .civic-profile, .civic-portfolio, .civic-coverage, .civic-questions, .civic-contact { position: relative; }
+.civic-interest::before, .civic-profile::before, .civic-portfolio::before, .civic-coverage::before, .civic-questions::before, .civic-contact::before { content: ""; position: absolute; z-index: 2; top: 0; left: clamp(1.25rem, 5vw, 5rem); width: 42px; height: 12px; background: var(--terracotta); clip-path: polygon(0 0, 100% 0, 76% 100%, 0 100%); }
+.civic-profile h2, .civic-coverage h2, .civic-questions h2, .civic-contact h2 { font-family: "Manrope", sans-serif; font-weight: 800; font-size: clamp(2rem, 3.25vw, 3.5rem); line-height: 1.05; letter-spacing: -.05em; text-transform: none; }
+.civic-contact { background: #262b2d; color: var(--paper); border-top: 9px solid var(--terracotta); }
+.civic-contact > div > p { color: var(--clay); }.civic-contact h2 em { color: var(--clay); }.civic-contact > div > p:nth-of-type(2) { color: #c8cfca; }.civic-contact > div > a { color: var(--clay); }
+.civic-contact .business-form { background: #f4eee2; color: var(--ink); }.civic-contact .business-form button { background: var(--terracotta); color: var(--paper); }
+.civic-portfolio span:hover { color: var(--paper); background: var(--ink); }
+
+@media (max-width: 620px) {
+  .metro-services::before, .metro-value::before, .metro-company::before, .metro-coverage::before, .metro-questions::before, .metro-assessment::before { left: 9px; }
+  .metro-services::after, .metro-value::after, .metro-company::after, .metro-coverage::after, .metro-questions::after, .metro-assessment::after { left: 5px; }
+  .watch-services::before, .watch-scan::before, .watch-company::before, .watch-coverage::before, .watch-faq::before, .watch-contact::before { inset: .6rem; }
+  .watch-services::after, .watch-scan::after, .watch-company::after, .watch-coverage::after, .watch-faq::after, .watch-contact::after { right: 1rem; top: .85rem; }
+  .civic-kit-sheets article:nth-child(2), .civic-kit-sheets article:nth-child(4) { transform: none; }
+  .civic-kit-sheets article:hover { transform: translateY(-5px) rotate(-.5deg); }
+}

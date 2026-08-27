@@ -1,0 +1,7 @@
+/** Fourtify values content pass: make officer accountability and prevention readable in each distinct theme system. */
+.response-first-step ol { grid-template-rows: repeat(4, 1fr); }
+.metro-value li { min-height: 66px; }
+.metro-company-note > p:nth-of-type(3), .watch-company > div > p:nth-of-type(3), .civic-profile > div > p:nth-of-type(3) { max-width: 650px; margin: 1rem 0 0; color: inherit; font-size: 13px; line-height: 1.75; opacity: .78; }
+.watch-scan-list { gap: .6rem; }
+.civic-interest-board span { font-size: 18px; }
+@media (max-width: 620px) { .response-first-step li { min-height: 130px; }.metro-value li { min-height: 60px; }.civic-interest-board span { font-size: 15px; } }

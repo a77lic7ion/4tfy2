@@ -1,0 +1,24 @@
+/**
+ * 4tify structural distinction reinforcement.
+ * Estate Protocol: restrained field-dossier type hierarchy and a dashed protective route.
+ * Response Signal: uninterrupted vermilion escalation line; red remains a cue rather than headline decoration.
+ */
+
+/* Estate: a continuous dossier spine reinforces the fixed-rail, mapped-plan experience. */
+.estate-canvas { position: relative; }
+.estate-canvas::after { content: ""; position: absolute; z-index: 8; pointer-events: none; left: 27px; top: 0; bottom: 0; width: 1px; opacity: .56; background: repeating-linear-gradient(to bottom, var(--yellow) 0 7px, transparent 7px 20px); }
+.dossier-cover h1 em, .estate-layers h2 em, .estate-assurance h2 em, .profile-sheet h2 em, .coverage-title h2 em, .estate-faq h2 em, .estate-contact h2 em { background: none; }
+.estate-assurance h2, .profile-sheet h2, .coverage-title h2, .estate-faq h2, .estate-contact h2 { font-family: "Manrope", sans-serif; font-size: clamp(2rem, 3.4vw, 3.5rem); font-weight: 800; line-height: 1.04; letter-spacing: -.05em; text-transform: none; }
+.estate-faq summary, .estate-contact-intro > p:last-of-type, .profile-sheet > p:nth-of-type(2), .coverage-title > p:last-child { font-family: "Manrope", sans-serif; }
+
+/* Response: no decorative vermilion headlines—red is reserved for signals, controls and escalation. */
+.night-command-core h1 em, .response-first-step h2 em, .capability-console h2 em, .protocol-copy h2 em, .response-coverage h2 em, .response-faq h2 em, .response-contact h2 em { color: inherit; }
+.response-first-step, .response-capabilities, .response-protocol, .response-portfolio, .response-coverage, .response-faq, .response-contact { border-left: 3px solid var(--red); }
+.response-first-step { position: relative; }
+.response-first-step::after { content: ""; position: absolute; right: 0; top: 0; height: 3px; width: 21%; background: var(--red); }
+.response-capabilities { position: relative; }
+.response-capabilities::before { content: ""; position: absolute; z-index: 3; right: 0; top: 0; height: 3px; width: 32%; background: var(--red); }
+.response-protocol { position: relative; }
+.response-protocol::before { content: ""; position: absolute; z-index: 3; left: 0; top: 0; height: 3px; width: 25%; background: var(--red); }
+
+@media (max-width: 820px) { .estate-canvas::after { left: 9px; } }
