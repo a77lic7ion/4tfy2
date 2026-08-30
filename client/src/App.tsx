@@ -31,10 +31,10 @@ import {
 } from "lucide-react";
 
 const assets = {
-  estateAccess: "/manus-storage/4tify-estate-access_c72cdc8c.jpg",
-  estateHandover: "/manus-storage/4tify-estate-handover_3f7e90b7.jpg",
-  responseHero: "/manus-storage/4tify-response-hero_9569b988.webp",
-  responsePatrol: "/manus-storage/4tify-response-patrol_ed7a0652.webp",
+  estateAccess: "/images/4tify-estate-access.jpg",
+  estateHandover: "/images/4tify-estate-handover.jpg",
+  responseHero: "/images/4tify-response-hero.jpg",
+  responsePatrol: "/images/4tify-response-patrol.jpg",
 };
 
 const services = [

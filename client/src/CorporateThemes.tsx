@@ -7,9 +7,9 @@ import { ArrowRight, Building2, Check, ChevronDown, ClipboardCheck, Clock3, MapP
 import { themeOptions, type ThemeMode } from "./theme";
 
 const media = {
-  metro: "/manus-storage/4tify-metro-vector_7fc586a4.webp",
-  watchtower: "/manus-storage/4tify-watchtower_35f861d4.webp",
-  civic: "/manus-storage/4tify-civic-guard_88be6fa5.webp",
+  metro: "/images/4tify-metro.jpg",
+  watchtower: "/images/4tify-watchtower.jpg",
+  civic: "/images/4tify-civic.jpg",
 };
 
 const commercialServices = [
