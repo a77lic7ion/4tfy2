@@ -57,7 +57,10 @@ img { display: block; max-width: 100%; }
 /* RESPONSE SIGNAL — left figure image swaps to the selected capability on the right. */
 .capability-active-img { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.04); transition: opacity .45s ease, transform 4s ease; }
 .capability-active-img.is-on { opacity: 1; transform: scale(1); }
-.response-capabilities figure img { position: relative; z-index: 1; }
+.response-capabilities figure img { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .32; }
+.capability-active-img { z-index: 1; }
+.response-capabilities > figure::after { background: linear-gradient(90deg, transparent 30%, #0f1010), linear-gradient(0deg, #0f1010, transparent 55%); }
+.response-capabilities figure figcaption { position: absolute; left: 1.5rem; bottom: 1.5rem; z-index: 2; display: flex; align-items: center; gap: .5rem; color: #f3eee3; font: 500 8px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
 .capability-stack article { cursor: pointer; transition: background .25s ease, transform .25s ease; }
 .capability-stack article:hover { transform: translateX(4px); background: rgba(243,238,227,.06); }
 
