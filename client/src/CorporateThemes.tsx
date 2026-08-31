@@ -7,18 +7,18 @@ import { ArrowRight, Building2, Check, ChevronDown, ClipboardCheck, Clock3, MapP
 import { themeOptions, type ThemeMode } from "./theme";
 
 const media = {
-  metro: "/images/4tify-metro.jpg",
-  watchtower: "/images/4tify-watchtower.jpg",
-  civic: "/images/4tify-civic.jpg",
+  metro: "/images/4tify-metro.jpg?v=2",
+  watchtower: "/images/4tify-watchtower.jpg?v=2",
+  civic: "/images/4tify-civic.jpg?v=2",
 };
 
 // Faded background image per Watchtower service square (order matches commercialServices).
 const serviceImages = [
-  "/images/4tify-estate-access.jpg", // 01 Access Control -> boom gate
-  "/images/4tify-metro.jpg",          // 02 Intelligent CCTV -> control room
-  "/images/4tify-response-hero.jpg",  // 03 24/7 Monitoring -> patrol bakkie
-  "/images/4tify-estate-handover.jpg", // 04 On-Site Personnel -> officers on duty
-  "/images/4tify-response-patrol.jpg", // 05 Armed Response -> foot patrol
+  "/images/4tify-estate-access.jpg?v=2", // 01 Access Control -> boom gate
+  "/images/4tify-metro.jpg?v=2",          // 02 Intelligent CCTV -> control room
+  "/images/4tify-response-hero.jpg?v=2",  // 03 24/7 Monitoring -> patrol bakkie
+  "/images/4tify-estate-handover.jpg?v=2", // 04 On-Site Personnel -> officers on duty
+  "/images/4tify-response-patrol.jpg?v=2", // 05 Armed Response -> foot patrol
 ];
 
 const commercialServices = [

@@ -30,11 +30,12 @@ import {
   X,
 } from "lucide-react";
 
+const ASSET_V = "?v=2";
 const assets = {
-  estateAccess: "/images/4tify-estate-access.jpg",
-  estateHandover: "/images/4tify-estate-handover.jpg",
-  responseHero: "/images/4tify-response-hero.jpg",
-  responsePatrol: "/images/4tify-response-patrol.jpg",
+  estateAccess: "/images/4tify-estate-access.jpg" + ASSET_V,
+  estateHandover: "/images/4tify-estate-handover.jpg" + ASSET_V,
+  responseHero: "/images/4tify-response-hero.jpg" + ASSET_V,
+  responsePatrol: "/images/4tify-response-patrol.jpg" + ASSET_V,
 };
 
 const services = [
