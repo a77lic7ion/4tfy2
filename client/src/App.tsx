@@ -3,7 +3,7 @@
  * Asset Protocol: a bright fixed-rail field dossier for considered commercial decisions.
  * Response Signal: a full-screen night-shift feed for immediate client confidence.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./overrides.css";
 import "./corporate-themes.css";
 import "./corporate-refinements.css";
@@ -37,6 +37,15 @@ const assets = {
   responseHero: "/images/4tify-response-hero.jpg" + ASSET_V,
   responsePatrol: "/images/4tify-response-patrol.jpg" + ASSET_V,
 };
+
+// Per-service background image (order matches the `services` array).
+const serviceImageSrc = [
+  "/images/4tify-estate-access.jpg" + ASSET_V, // 01 Access Control -> boom gate
+  "/images/4tify-metro.jpg" + ASSET_V,          // 02 Intelligent CCTV -> control room
+  "/images/4tify-response-hero.jpg" + ASSET_V,  // 03 24/7 Monitoring -> patrol bakkie
+  "/images/4tify-estate-handover.jpg" + ASSET_V, // 04 On-Site Personnel -> officers on duty
+  "/images/4tify-response-patrol.jpg" + ASSET_V, // 05 Armed Response -> foot patrol
+];
 
 const services = [
   { n: "01", title: "Access Control", copy: "Robust systems to manage commercial entry points, visitors and critical zones across your premises.", icon: ShieldCheck },
@@ -90,7 +99,7 @@ function EstateDossier({ theme, onTheme }: { theme: ThemeMode; onTheme: (value: 
       </section>
       <section id="services" className="estate-layers">
         <div className="dossier-section-head"><p>Protective map // layers of readiness</p><h2>Every layer has a purpose. <em>Every business has a plan.</em></h2><span>Swipe through the protection route <ArrowRight size={15} /></span></div>
-        <div className="layer-track">{services.map((service) => { const Icon = service.icon; return <article className="layer-sheet" key={service.title}><div className="layer-sheet-top"><span>{service.n}</span><Icon size={27} /><b>Protective layer</b></div><div><h3>{service.title}</h3><p>{service.copy}</p></div><button aria-label={`Read about ${service.title}`}><ArrowRight size={21} /></button></article>; })}</div>
+        <div className="layer-track">{services.map((service, index) => { const Icon = service.icon; return <article className="layer-sheet" key={service.title} style={{ ["--bg" as any]: `url(${serviceImageSrc[index]})` }}><div className="layer-sheet-top"><span>{service.n}</span><Icon size={27} /><b>Protective layer</b></div><div><h3>{service.title}</h3><p>{service.copy}</p></div><button aria-label={`Read about ${service.title}`}><ArrowRight size={21} /></button></article>; })}</div>
       </section>
       <section className="estate-assurance"><div><p>Why 4tify // commercial confidence</p><h2>Firm at the perimeter. <em>Focused on the operation.</em></h2><p className="estate-body-copy">Choosing a security partner for a business is a decision built on trust and accountability. From Benoni to Johannesburg, our systems are designed to protect premises, stock, equipment, people and operational continuity with a disciplined professional presence.</p><a href="#contact">Build a site-specific plan <ArrowRight size={17} /></a></div><aside><span>Security posture</span><b>24<br /><em>/ 7</em></b><p>Command remains ready around the business interests in your care.</p></aside></section>
       <section id="about" className="estate-profile"><div className="profile-image-wrap"><figure><img src={assets.estateHandover} alt="Officers completing a professional operational security handover" /><figcaption><ClipboardCheck size={19} />Operational handover / Field-ready personnel</figcaption></figure><span className="image-coordinate">S26° 10’ / E28° 18’</span></div><div className="profile-sheet"><p>Unit profile // who we are</p><h2>Local knowledge. <em>Disciplined standards.</em></h2><p>A South African security services provider registered and operating out of Benoni, Gauteng. We support commercial clients with trained personnel, technology and round-the-clock command structured around access, asset protection and business continuity.</p><p>Every site plan starts with its manager. Together we agree practical instructions; each officer owns their shift, reports risks to people or property, and is treated with respect by a company that manages its finances with integrity.</p><blockquote>“Precautions are better than a cure.”</blockquote><dl><div><dt>Director</dt><dd>Khethwayo Phillip Zulu</dd></div><div><dt>Consultant</dt><dd>Peter Edmund Vosloo</dd></div><div><dt>PSIRA registration</dt><dd>4899123</dd></div><div><dt>Company registration</dt><dd>2022/631889/07</dd></div></dl></div></section>
@@ -105,6 +114,9 @@ function EstateDossier({ theme, onTheme }: { theme: ThemeMode; onTheme: (value: 
 
 function ResponseFeed({ theme, onTheme }: { theme: ThemeMode; onTheme: (value: ThemeMode) => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeCap, setActiveCap] = useState(4);
+  const activeImgRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { const el = activeImgRef.current; if (!el) return; el.classList.remove("is-on"); const id = window.requestAnimationFrame(() => el.classList.add("is-on")); return () => window.cancelAnimationFrame(id); }, [activeCap]);
   return <div className="response-mode">
     <section id="home" className="night-command">
       <img className="night-command-image" src={assets.responseHero} alt="Private-security response vehicle at a secured Gauteng property at night" />
@@ -117,7 +129,7 @@ function ResponseFeed({ theme, onTheme }: { theme: ThemeMode; onTheme: (value: T
     </section>
     <section className="signal-ticker" aria-label="4tify core services"><div><span>Access control</span><i /> <span>Intelligent CCTV</span><i /> <span>24 / 7 monitoring</span><i /> <span>On-site personnel</span><i /> <span>Armed response</span><i /> <span>Gauteng private security</span><i /></div></section>
     <section className="response-first-step"><div className="first-step-intro"><p>First move // in a moment that matters</p><h2>Make the call. <em>We map the next layer.</em></h2><p>No generic security packages. Start with the site, the risk, and the people inside it.</p><a href="#contact">Start an assessment <ArrowRight size={17} /></a></div><ol><li><span>01</span><b>Brief the site manager</b><p>Agree the site instructions, priorities and business interests that need protection.</p></li><li><span>02</span><b>Assign accountable shifts</b><p>Each officer owns their duties, arrival, reporting and professional conduct.</p></li><li><span>03</span><b>Identify protective gaps</b><p>Understand access, visibility, assets, personnel and response needs.</p></li><li><span>04</span><b>Act before loss occurs</b><p>Report activity that could endanger people, damage property or interrupt operations.</p></li></ol></section>
-    <section id="services" className="response-capabilities"><figure><img src={assets.responsePatrol} alt="Private-security patrol managing a commercial perimeter at night" /><figcaption><span className="status-pip" />Live posture / Perimeter control</figcaption></figure><div className="capability-console"><div className="capability-console-head"><p>Response protocol // capabilities</p><h2>The whole <em>operation.</em></h2><span>Scroll to inspect</span></div><div className="capability-stack">{services.map((service) => { const Icon = service.icon; return <article key={service.title}><span>{service.n}</span><Icon size={24} /><div><h3>{service.title}</h3><p>{service.copy}</p></div><ArrowRight size={18} /></article>; })}</div></div></section>
+    <section id="services" className="response-capabilities"><figure><img src={assets.responsePatrol} alt="Private-security patrol managing a commercial perimeter at night" /><div className="capability-active-img" ref={activeImgRef} key={activeCap} style={{ backgroundImage: `url(${serviceImageSrc[activeCap]})` }} /><figcaption><span className="status-pip" />Live posture / Perimeter control</figcaption></figure><div className="capability-console"><div className="capability-console-head"><p>Response protocol // capabilities</p><h2>The whole <em>operation.</em></h2><span>Scroll to inspect</span></div><div className="capability-stack">{services.map((service, index) => { const Icon = service.icon; return <article key={service.title} style={{ ["--bg" as any]: `url(${serviceImageSrc[index]})` }} onMouseEnter={() => setActiveCap(index)} onFocus={() => setActiveCap(index)} onClick={() => setActiveCap(index)} tabIndex={0}><span>{service.n}</span><Icon size={24} /><div><h3>{service.title}</h3><p>{service.copy}</p></div><ArrowRight size={18} /></article>; })}</div></div></section>
     <section id="about" className="response-protocol"><div className="protocol-image"><img src={assets.estateHandover} alt="Security officers completing a disciplined operational handover" /><span>Field handover<br /> / 01</span></div><div className="protocol-copy"><p>Unit profile // who we are</p><h2>Composure comes from <em>preparation.</em></h2><p>A South African security services provider registered and operating out of Benoni, Gauteng. We protect commercial clients with a blend of trained personnel, technology and round-the-clock command around their people, premises, stock and critical operations.</p><blockquote>“It is wiser to take preventive measures to avoid problems rather than trying to fix them after they occur.”</blockquote><div className="protocol-record"><span><small>Director</small>Khethwayo Phillip Zulu</span><span><small>Consultant</small>Peter Edmund Vosloo</span><span><small>PSIRA registration</small>4899123</span><span><small>Company registration</small>2022/631889/07</span></div></div></section>
     <section className="response-portfolio"><p>Full service portfolio / 09 protective lines</p><div>{portfolio.map((item, index) => <span key={item}><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}</div></section>
     <section id="areas" className="response-coverage"><div><p>Area of operations // Gauteng</p><h2>Positioned for the businesses that <em>cannot be left to chance.</em></h2><p>Protecting commercial interests across Gauteng — from Benoni and Rynfield to the wider Johannesburg metro.</p></div><div className="response-zone-list">{[["Benoni", "Head office base"], ["Rynfield", "Rynfield, Benoni"], ["Johannesburg", "Greater Jozi metro"], ["Gauteng", "Province-wide"]].map(([name, detail], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><MapPin size={18} /><h3>{name}</h3><p>{detail}</p></article>)}</div></section>
